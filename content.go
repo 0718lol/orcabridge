@@ -164,6 +164,10 @@ var modelCatalog = []ModelInfo{
 		Description: "DeepSeek 轻量版，响应更快，适合日常高频任务", Capabilities: []string{"推理", "长上下文"}, Free: true,
 	},
 	{
+		ID: "deepseek-v4.1-flash", Upstream: "TokenHub/deepseek-v4.1-flash", Name: "DeepSeek-V4.1-Flash",
+		Description: "DeepSeek V4.1 轻量版，客户端选择器可见", Capabilities: []string{"推理", "长上下文"}, Free: true,
+	},
+	{
 		ID: "hy3", Upstream: "Hunyuan3/hy3", Name: "Hy3",
 		Description: "腾讯混元，中文理解与内容创作表现优异", Capabilities: []string{"推理"}, Free: true,
 		aliases: []string{"hunyuan"},
