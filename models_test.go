@@ -42,8 +42,8 @@ func TestModelsListCounts(t *testing.T) {
 		t.Fatalf("状态 %d", status)
 	}
 	entries := modelIDsOf(t, body)
-	if len(entries) != 18 {
-		t.Errorf("列表项 = %d，期望 18（17 唯一模型 + 1 别名）", len(entries))
+	if len(entries) != 19 {
+		t.Errorf("列表项 = %d，期望 19（18 唯一模型 + 1 别名）", len(entries))
 	}
 	current, legacy := 0, 0
 	for _, m := range Models() {
@@ -53,8 +53,8 @@ func TestModelsListCounts(t *testing.T) {
 			current++
 		}
 	}
-	if current != 8 || legacy != 9 || len(Models()) != 17 {
-		t.Errorf("目录 = %d current / %d legacy（共 %d），期望 8 / 9 / 17", current, legacy, len(Models()))
+	if current != 9 || legacy != 9 || len(Models()) != 18 {
+		t.Errorf("目录 = %d current / %d legacy（共 %d），期望 9 / 9 / 18", current, legacy, len(Models()))
 	}
 	if _, ok := entries[DefaultModelID]; !ok {
 		t.Errorf("默认模型 %s 应出现在列表中", DefaultModelID)
@@ -124,8 +124,8 @@ func TestModelAliasCollapsesToDefault(t *testing.T) {
 
 	_, list := getJSON(t, ps, "/v1/models")
 	entries := modelIDsOf(t, list)
-	if len(entries) != 17 {
-		t.Errorf("别名与默认模型重合时列表应为 17 项，实际 %d", len(entries))
+	if len(entries) != 18 {
+		t.Errorf("别名与默认模型重合时列表应为 18 项，实际 %d", len(entries))
 	}
 	status, body := getJSON(t, ps, "/v1/models/"+DefaultModelID)
 	if status != http.StatusOK {
